@@ -13,8 +13,7 @@ public class WhenConvertArabicNumberToRoman {
     }
 
     private String convertToRoman(int i) {
-        ArabicToRomanNumbersConverter converter = new ArabicToRomanNumbersConverter();
-        return converter.convert(i);
+        return ArabicToRomanNumbersConverter.convert(i);
     }
 
     @Test
@@ -51,5 +50,11 @@ public class WhenConvertArabicNumberToRoman {
     public void Covert_8_To_VIII() {
         String romanNumber = convertToRoman(8);
         assertEquals("VIII", romanNumber);
+    }
+
+    @Test
+    public void Covert_4_To_IV() {
+        String romanNumber = convertToRoman(4);
+        assertEquals("IV", romanNumber);
     }
 }
