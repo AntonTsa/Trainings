@@ -1,42 +1,62 @@
 package com.company;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
+
 
 public class TestArithmetics {
+    private static Arithmetics a;
+
+    @Rule
+    public final ExpectedException exp = ExpectedException.none();
+
+    public Timeout timeout = new Timeout(1000);
+
+    @BeforeClass
+    public static void runT() {
+        a = new Arithmetics();
+    }
+    @Ignore
     @Test
     public void testAdd() {
-        Arithmetics a = new Arithmetics();
         double res = a.add(3, 7);
-        Assert.assertNotNull(a);
+        Assert.assertEquals(10.0, res, 0.0);
     }
 
     @Test
     public void testMult() {
-        Arithmetics a = new Arithmetics();
         double res = a.mult(3, 7);
-        if (res != 21) {
-            Assert.fail();
-        }
+        Assert.assertEquals(21.0, res, 0.0);
     }
 
     @Test
     public void testDeduct() {
-        Arithmetics a = new Arithmetics();
         double res = a.deduct(3, 7);
-        if (res != -4) {
-            Assert.fail();
-        }
+        Assert.assertEquals(-4.0, res, 0.0);
     }
 
     @Test
     public void testDiv() {
         Arithmetics a = new Arithmetics();
         double res = a.div(10, 5);
-        if (res != 2.0) {
-            Assert.fail();
-        }
+        Assert.assertEquals(2.0, res, 0.0);
     }
+
+    //@Test(expected = Exception.class)
+    @Test
+    public void testDivException () {
+        exp.expect(ArithmeticException.class);
+        a.div(10.0, 0.0);
+
+    }
+
+    //@Test(timeout = 1000)
+    @Test
+    public void testN() {
+
+    }
+
 
 
 }
