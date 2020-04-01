@@ -7,11 +7,16 @@ public class ArabicToRomanNumbersConverter {
         if (noNumber) {
             return getDefaultMethod();
         }
-        if (arabicNumber == 1) {
-            return "I";
-        }
+        return getSimpleRomanNumber(arabicNumber);
+    }
 
-        return "II";
+    private String getSimpleRomanNumber(int arabicNumber) {
+        String romanNumber = "";
+        while (arabicNumber >= 1) {
+            romanNumber += "I";
+            arabicNumber--;
+        }
+        return romanNumber;
     }
 
     private String getDefaultMethod() {

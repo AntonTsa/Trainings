@@ -29,4 +29,9 @@ public class WhenConvertArabicNumberToRoman {
         assertEquals("II", romanNumber);
     }
 
+    @Test
+    public void Covert_3_To_III() {
+        String romanNumber = convertToRoman(3);
+        assertEquals("III", romanNumber);
+    }
 }
