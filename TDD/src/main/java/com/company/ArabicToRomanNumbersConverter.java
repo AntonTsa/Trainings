@@ -2,8 +2,8 @@ package com.company;
 
 public class ArabicToRomanNumbersConverter {
 
-    public static final int[] ARABIC_DIGITS = {5, 1};
-    public static final String[] ROMAN_DIGITS = {"V", "I"};
+    public static final int[] ARABIC_DIGITS = {50, 10, 5, 1};
+    public static final String[] ROMAN_DIGITS = {"L", "X", "V", "I"};
 
     public static String convert(int arabicNumber) {
         boolean noNumber = arabicNumber == 0;
@@ -16,18 +16,20 @@ public class ArabicToRomanNumbersConverter {
             if (romanNumber.charAt(i - 3) == romanNumber.charAt(i - 2) &&
                     romanNumber.charAt(i - 2) == romanNumber.charAt(i - 1) &&
                     romanNumber.charAt(i - 1) == romanNumber.charAt(i)) {
-                String nextRomanNumber = "";
-                for(int j = 0; j < ROMAN_DIGITS.length; j++) {
-                    if(ROMAN_DIGITS[j].equals(String.valueOf(romanNumber.charAt(i)))) {
-                        nextRomanNumber = ROMAN_DIGITS[j - 1];
-                    }
-                }
-
-
-                romanNumber.replace(i - 2, i + 1, nextRomanNumber);
+                romanNumber.replace(i - 2, i + 1, getNextRomanNumber(romanNumber, i));
             }
         }
         return romanNumber.toString();
+    }
+
+    private static String getNextRomanNumber(StringBuilder romanNumber, int i) {
+        String nextRomanNumber = "";
+        for(int j = 0; j < ROMAN_DIGITS.length; j++) {
+            if(ROMAN_DIGITS[j].equals(String.valueOf(romanNumber.charAt(i)))) {
+                nextRomanNumber = ROMAN_DIGITS[j - 1];
+            }
+        }
+        return nextRomanNumber;
     }
 
     private static StringBuilder getRoughRomanNumber(int arabicNumber) {

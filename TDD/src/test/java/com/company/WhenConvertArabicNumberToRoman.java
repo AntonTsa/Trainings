@@ -57,4 +57,22 @@ public class WhenConvertArabicNumberToRoman {
         String romanNumber = convertToRoman(4);
         assertEquals("IV", romanNumber);
     }
+
+    @Test
+    public void Covert_10_To_X() {
+        String romanNumber = convertToRoman(10);
+        assertEquals("X", romanNumber);
+    }
+
+    @Test
+    public void Covert_50_To_L() {
+        String romanNumber = convertToRoman(50);
+        assertEquals("L", romanNumber);
+    }
+
+    @Test
+    public void Covert_44_To_XLIV() {
+        String romanNumber = convertToRoman(44);
+        assertEquals("XLIV", romanNumber);
+    }
 }
