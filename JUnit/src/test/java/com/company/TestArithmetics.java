@@ -8,7 +8,7 @@ public class TestArithmetics {
     public void testAdd() {
         Arithmetics a = new Arithmetics();
         double res = a.add(3, 7);
-        Assert.assertTrue(res == 10);
+        Assert.assertFalse(res != 10);
     }
 
     @Test
