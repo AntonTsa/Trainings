@@ -2,8 +2,8 @@ package com.company;
 
 public class ArabicToRomanNumbersConverter {
 
-    public static final int[] ARABIC_DIGITS = {50, 10, 5, 1};
-    public static final String[] ROMAN_DIGITS = {"L", "X", "V", "I"};
+    public static final int[] ARABIC_DIGITS = {1000, 500, 100, 50, 10, 5, 1};
+    public static final String[] ROMAN_DIGITS = {"M", "D", "C", "L", "X", "V", "I"};
 
     public static String convert(int arabicNumber) {
         boolean noNumber = arabicNumber == 0;

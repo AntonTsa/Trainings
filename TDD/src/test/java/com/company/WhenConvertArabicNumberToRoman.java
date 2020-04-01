@@ -75,4 +75,16 @@ public class WhenConvertArabicNumberToRoman {
         String romanNumber = convertToRoman(44);
         assertEquals("XLIV", romanNumber);
     }
+
+    @Test
+    public void Covert_600_To_DC() {
+        String romanNumber = convertToRoman(600);
+        assertEquals("DC", romanNumber);
+    }
+
+    @Test
+    public void Covert_900_To_DM() {
+        String romanNumber = convertToRoman(900);
+        assertEquals("CM", romanNumber);
+    }
 }
